@@ -41,8 +41,6 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
 
 export const LeaderBoard: FC = () => {
   const { users, loading, error } = useLeaderboardData();
-  console.log("🚀 ~ users:", users)
-
 
   if (loading) {
     return <Container className="text-center">Loading...</Container>;

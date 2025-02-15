@@ -58,7 +58,6 @@ const useLeaderboardData = (): UseLeaderboardDataResult => {
         },
       });
       const data: OpenSeaNFTCollection = await response.json();
-      console.log('🚀 ~ fetchNFTs ~ data:', data);
       return data.nfts;
     };
 
@@ -70,7 +69,6 @@ const useLeaderboardData = (): UseLeaderboardDataResult => {
           console.warn('Failed to fetch leaderboard data, return mocked data');
         });
         const data = response ? await response.json() : LEADER_BOARD_USER_MOCK;
-        console.log('🚀 ~ fetchUsers ~ data:', data);
 
         const usersWithNFTs = await Promise.all(
           data.users.map(async (user: User) => {
