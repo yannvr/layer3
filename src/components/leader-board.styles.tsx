@@ -187,16 +187,16 @@ export const Tooltip = styled.div`
   padding: 0.5rem;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position above the icon */
+  bottom: 125%;
   left: 50%;
-  margin-left: -100px; /* Center the tooltip */
+  margin-left: -100px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
   &::after {
     content: '';
     position: absolute;
-    top: 100%; /* Arrow at the bottom */
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;

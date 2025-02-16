@@ -28,7 +28,7 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
     <UserInfo>
       <RankBadge>{user.rank}</RankBadge>
       <Avatar src={`https://ipfs.io/ipfs/${user.avatarCid}`} alt={user.username} />
-      <Username href={`https://app.layer3.xyz/{user.username}`} target="_blank">
+      <Username href={`https://app.layer3.xyz/${user.username}`} target="_blank">
         {user.username}
       </Username>
     </UserInfo>
@@ -36,7 +36,7 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
     <Stats>
       <GmStreak>{user.gmStreak} GM</GmStreak>
       <Xp>{user.xp} XP</Xp>
-      <Level>Lvl {user.level}</Level>
+      <Level>Level {user.level}</Level>
       <div>
         {user.nfts && user.nfts.length > 0 && (
           <NFTContainerHover>
