@@ -17,13 +17,11 @@ import {
   Xp,
 } from './leader-board.styles';
 
-
 interface LeaderBoardProps {
   users?: User[];
   loading?: boolean;
   error?: string | null;
 }
-
 
 const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
   <ListItem>
@@ -43,6 +41,7 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
         {user.nfts && user.nfts.length > 0 && (
           <NFTContainerHover>
             <img src="/src/assets/nft-icon.png" alt="NFT" width="20" height="20" />
+            {/* Display User's NFT when hovering the tooltip icon */}
             <Tooltip>
               {user.nfts.map(
                 (nft) =>
@@ -63,6 +62,7 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
   </ListItem>
 );
 
+// The arguments are only used for UI testing in Storybook. The app doesn't require them.
 export const LeaderBoard: FC<LeaderBoardProps> = ({ users: propUsers, loading: propLoading, error: propError }) => {
   const { users: hookUsers, loading: hookLoading, error: hookError } = useLeaderboardData();
   const users = propUsers ?? hookUsers;
