@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import { LeaderBoard } from './leader-board';
+import { LeaderBoard as LeaderBoardRaw } from './leader-board';
 
 const mockUsers: { users: any } = {
   users: [
@@ -41,7 +41,7 @@ describe('LeadBoard Component', () => {
   });
 
   test('renders loading state initially', () => {
-    render(<LeaderBoard />);
+    render(<LeaderBoardRaw />);
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
@@ -52,14 +52,14 @@ describe('LeadBoard Component', () => {
         ok: false,
       })
     );
-    render(<LeaderBoard />);
+    render(<LeaderBoardRaw />);
     await waitFor(() =>
       expect(screen.getByText(/error/i)).toBeInTheDocument()
     );
   });
 
   test('renders users after successful fetch', async () => {
-    render(<LeaderBoard />);
+    render(<LeaderBoardRaw />);
     await waitFor(() =>
       expect(screen.getByText('Leaderboard')).toBeInTheDocument()
     );

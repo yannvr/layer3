@@ -62,13 +62,8 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
   </ListItem>
 );
 
-// The arguments are only used for UI testing in Storybook. The app doesn't require them.
-export const LeaderBoard: FC<LeaderBoardProps> = ({ users: propUsers, loading: propLoading, error: propError }) => {
-  const { users: hookUsers, loading: hookLoading, error: hookError } = useLeaderboardData();
-  const users = propUsers ?? hookUsers;
-  const loading = propLoading ?? hookLoading;
-  const error = propError ?? hookError;
-
+// Raw component for testing purposes
+export const LeaderBoardRaw: FC<LeaderBoardProps> = ({ users = [], loading = false, error = null }) => {
   if (loading) {
     return <Container className="text-center">Loading...</Container>;
   }
@@ -87,4 +82,9 @@ export const LeaderBoard: FC<LeaderBoardProps> = ({ users: propUsers, loading: p
       </List>
     </Container>
   );
+};
+
+export const LeaderBoard: FC<LeaderBoardProps> = (props) => {
+  const { users, loading, error } = useLeaderboardData();
+  return <LeaderBoardRaw users={users} loading={loading} error={error} {...props} />;
 };

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { LeaderBoard } from './leader-board';
+import type { Meta } from '@storybook/react';
+import { LeaderBoardRaw } from './leader-board';
 import { LEADER_BOARD_USER_MOCK } from './leader-board.hooks';
 
 export default {
-  title: 'Components/LeadBoard',
-  component: LeaderBoard,
+  title: 'Components/LeaderBoard',
+  component: LeaderBoardRaw,
 } as Meta;
 
 export const Default = {

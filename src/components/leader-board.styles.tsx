@@ -1,7 +1,9 @@
+// filepath: /Users/yannvallery-radot/dev/iview/layer3/src/components/leader-board.styles.tsx
 import styled, { createGlobalStyle } from 'styled-components';
+import fireIcon from '../assets/fire.png';
+import rankBadgeIcon from '../assets/rank-badge.png';
 
 export const GlobalStyle = createGlobalStyle`
-  // This is not a comprehensive theme but just a helper for colors that are reused
   :root {
     --color-background: #0f0f0f;
     --color-text: #ffffff;
@@ -46,6 +48,8 @@ export const Title = styled.h2`
 `;
 
 export const List = styled.ul`
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   padding: 0;
 `;
 
@@ -56,6 +60,7 @@ export const ListItem = styled.li`
   padding: 1rem;
   border-bottom: 1px solid var(--color-border);
 
+  // Don't be rough around the edges
   &:first-child {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
@@ -64,26 +69,26 @@ export const ListItem = styled.li`
   &:last-child {
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
+ }
+
+
+  &:last-of-type {
     border-bottom: none;
   }
 
-  &:last-of-type {
-    border: none;
-  }
-
-  background-color: #241919;
-
-  // The first three players get a different background color
   &:nth-child(1) {
     background-color: rgba(255, 215, 0, 0.2); /* Gold */
+    color: #000000; /* Ensure text contrast */
   }
 
   &:nth-child(2) {
     background-color: rgba(192, 192, 192, 0.2); /* Silver */
+    color: #000000; /* Ensure text contrast */
   }
 
   &:nth-child(3) {
     background-color: rgba(205, 127, 50, 0.2); /* Bronze */
+    color: #000000; /* Ensure text contrast */
   }
 `;
 
@@ -132,11 +137,23 @@ export const Stats = styled.div`
 `;
 
 export const GmStreak = styled.span`
+  display: flex;
+  align-items: center;
   color: var(--color-gm-streak);
+  background-image: url(${fireIcon});
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 1.5rem; /* Adjust padding to make space for the icon */
 `;
 
 export const Xp = styled.span`
+  display: flex;
+  align-items: center;
   color: var(--color-xp);
+  background-image: url(${rankBadgeIcon});
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 1.5rem; /* Adjust padding to make space for the icon */
 `;
 
 export const Level = styled.span`
@@ -162,7 +179,6 @@ export const NFTIcon = styled.span`
   color: var(--color-nft-icon-text);
 `;
 
-// Tooltip styles to show NFTs on hover
 export const Tooltip = styled.div`
   visibility: hidden;
   width: 200px;
@@ -173,25 +189,24 @@ export const Tooltip = styled.div`
   padding: 0.5rem;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 125%; /* Position above the icon */
   left: 50%;
-  margin-left: -100px;
+  margin-left: -100px; /* Center the tooltip */
   opacity: 0;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
   &::after {
     content: '';
     position: absolute;
-    top: 100%;
+    top: 100%; /* Arrow at the bottom */
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: var(--color-tooltip-arrow) transparent;
+    border-color: var(--color-tooltip-arrow) transparent transparent transparent;
   }
 `;
 
-// Show NFTs images on hover
 export const NFTContainerHover = styled(NFTContainer)`
   &:hover ${Tooltip} {
     visibility: visible;
