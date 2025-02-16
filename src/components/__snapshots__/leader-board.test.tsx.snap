@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-FEMpB tVkqj"
+  >
+    <h2
+      class="sc-gjcoXW evecgK"
+    >
+      Leaderboard
+    </h2>
+    <ul
+      class="sc-dVBluf cmzpOe"
+    >
+      <li
+        class="sc-fLDLck kxoDan"
+      >
+        <div
+          class="sc-dycHyt gojcEs"
+        >
+          <span
+            class="sc-jbAkgO dfZwmq"
+          >
+            1
+          </span>
+          <img
+            alt="yakugakusei.eth"
+            class="sc-gNZgCX cambCd"
+            src="https://ipfs.io/ipfs/QmTUefEyqzfSugwvbCnTjzRdFvp4L5yA6qjEx1yspsr17z"
+          />
+          <a
+            class="sc-kfeOyU PACFW"
+            href="https://app.layer3.xyz/{user.username}"
+            target="_blank"
+          >
+            yakugakusei.eth
+          </a>
+        </div>
+        <div
+          class="sc-hRDKVd iPvKte"
+        >
+          <span
+            class="sc-jBIHhB jcbsD"
+          >
+            248 GM
+          </span>
+          <span
+            class="sc-cMqPwU kZRiJs"
+          >
+            169164 XP
+          </span>
+          <span
+            class="sc-jUkaYT kRKbRX"
+          >
+            Lvl 41
+          </span>
+          <div>
+            <div
+              class="sc-deSjom sc-jZTQcj bpfXyB HJqlG"
+            >
+              <img
+                alt="NFT"
+                height="20"
+                src="/src/assets/nft-icon.png"
+                width="20"
+              />
+              <div
+                class="sc-cSaEAk bhJyLN"
+              >
+                <div>
+                  <a
+                    href="https://opensea.io/assets/1"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <img
+                      alt="NFT 1"
+                      height="50"
+                      src="https://example.com/nft1.png"
+                      width="50"
+                    />
+                  </a>
+                  <p>
+                    NFT 1
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li
+        class="sc-fLDLck kxoDan"
+      >
+        <div
+          class="sc-dycHyt gojcEs"
+        >
+          <span
+            class="sc-jbAkgO dfZwmq"
+          >
+            2
+          </span>
+          <img
+            alt="user2.eth"
+            class="sc-gNZgCX cambCd"
+            src="https://ipfs.io/ipfs/QmExampleCid2"
+          />
+          <a
+            class="sc-kfeOyU PACFW"
+            href="https://app.layer3.xyz/{user.username}"
+            target="_blank"
+          >
+            user2.eth
+          </a>
+        </div>
+        <div
+          class="sc-hRDKVd iPvKte"
+        >
+          <span
+            class="sc-jBIHhB jcbsD"
+          >
+            150 GM
+          </span>
+          <span
+            class="sc-cMqPwU kZRiJs"
+          >
+            120000 XP
+          </span>
+          <span
+            class="sc-jUkaYT kRKbRX"
+          >
+            Lvl 30
+          </span>
+          <div />
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-FEMpB tVkqj"
+  >
+    <h2
+      class="sc-gjcoXW evecgK"
+    >
+      Leaderboard
+    </h2>
+    <ul
+      class="sc-dVBluf cmzpOe"
+    >
+      <li
+        class="sc-fLDLck kxoDan"
+      >
+        <div
+          class="sc-dycHyt gojcEs"
+        >
+          <span
+            class="sc-jbAkgO dfZwmq"
+          >
+            1
+          </span>
+          <img
+            alt="yakugakusei.eth"
+            class="sc-gNZgCX cambCd"
+            src="https://ipfs.io/ipfs/QmTUefEyqzfSugwvbCnTjzRdFvp4L5yA6qjEx1yspsr17z"
+          />
+          <a
+            class="sc-kfeOyU PACFW"
+            href="https://app.layer3.xyz/{user.username}"
+            target="_blank"
+          >
+            yakugakusei.eth
+          </a>
+        </div>
+        <div
+          class="sc-hRDKVd iPvKte"
+        >
+          <span
+            class="sc-jBIHhB jcbsD"
+          >
+            248 GM
+          </span>
+          <span
+            class="sc-cMqPwU kZRiJs"
+          >
+            169164 XP
+          </span>
+          <span
+            class="sc-jUkaYT kRKbRX"
+          >
+            Lvl 41
+          </span>
+          <div />
+        </div>
+      </li>
+      <li
+        class="sc-fLDLck kxoDan"
+      >
+        <div
+          class="sc-dycHyt gojcEs"
+        >
+          <span
+            class="sc-jbAkgO dfZwmq"
+          >
+            2
+          </span>
+          <img
+            alt="user2.eth"
+            class="sc-gNZgCX cambCd"
+            src="https://ipfs.io/ipfs/QmExampleCid2"
+          />
+          <a
+            class="sc-kfeOyU PACFW"
+            href="https://app.layer3.xyz/{user.username}"
+            target="_blank"
+          >
+            user2.eth
+          </a>
+        </div>
+        <div
+          class="sc-hRDKVd iPvKte"
+        >
+          <span
+            class="sc-jBIHhB jcbsD"
+          >
+            150 GM
+          </span>
+          <span
+            class="sc-cMqPwU kZRiJs"
+          >
+            120000 XP
+          </span>
+          <span
+            class="sc-jUkaYT kRKbRX"
+          >
+            Lvl 30
+          </span>
+          <div />
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

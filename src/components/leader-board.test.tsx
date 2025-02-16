@@ -12,6 +12,14 @@ const mockUsers: { users: any } = {
       gmStreak: 248,
       xp: 169164,
       level: 41,
+      nfts: [
+        {
+          identifier: '1',
+          display_image_url: 'https://example.com/nft1.png',
+          name: 'NFT 1',
+          opensea_url: 'https://opensea.io/assets/1',
+        },
+      ],
     },
     {
       rank: 2,
@@ -21,6 +29,7 @@ const mockUsers: { users: any } = {
       gmStreak: 150,
       xp: 120000,
       level: 30,
+      nfts: [],
     },
   ],
 };
@@ -39,6 +48,8 @@ describe('LeadBoard Component', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
+
+  // Basic rendering test below for the key states of the component
 
   test('renders loading state initially', () => {
     render(<LeaderBoardRaw />);
@@ -65,5 +76,19 @@ describe('LeadBoard Component', () => {
     );
     expect(screen.getByText('yakugakusei.eth')).toBeInTheDocument();
     expect(screen.getByText('user2.eth')).toBeInTheDocument();
+  });
+
+  // Use snapshot testing to test NFT rendering
+  test('matches snapshot when populated with NFTs', async () => {
+    const { asFragment } = render(<LeaderBoardRaw users={mockUsers.users} />);
+    await waitFor(() => expect(screen.getByText('yakugakusei.eth')).toBeInTheDocument());
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('matches snapshot when populated without NFTs', async () => {
+    const usersWithoutNFTs = mockUsers.users.map((user: any) => ({ ...user, nfts: [] }));
+    const { asFragment } = render(<LeaderBoardRaw users={usersWithoutNFTs} />);
+    await waitFor(() => expect(screen.getByText('yakugakusei.eth')).toBeInTheDocument());
+    expect(asFragment()).toMatchSnapshot();
   });
 });
