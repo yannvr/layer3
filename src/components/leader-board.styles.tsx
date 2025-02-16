@@ -48,8 +48,6 @@ export const Title = styled.h2`
 `;
 
 export const List = styled.ul`
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
   padding: 0;
 `;
 
@@ -60,7 +58,7 @@ export const ListItem = styled.li`
   padding: 1rem;
   border-bottom: 1px solid var(--color-border);
 
-  // Don't be rough around the edges
+  // Don't be rough around the edges :)
   &:first-child {
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
