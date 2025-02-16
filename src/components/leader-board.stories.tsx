@@ -4,12 +4,37 @@ import { LEADER_BOARD_USER_MOCK } from './leader-board.hooks';
 
 export default {
   title: 'Components/LeadBoard',
-  component: LeaderBoard
+  component: LeaderBoard,
 } as Meta;
 
-
-export const LeadBoard: StoryObj = {
+export const Default = {
   args: {
-    usersOverride: LEADER_BOARD_USER_MOCK,
+    users: LEADER_BOARD_USER_MOCK.users,
+    loading: false,
+    error: null,
+  },
+};
+
+export const TopThree = {
+  args: {
+    users: LEADER_BOARD_USER_MOCK.users.slice(0, 3),
+    loading: false,
+    error: null,
+  },
+};
+
+export const Loading = {
+  args: {
+    users: [],
+    loading: true,
+    error: null,
+  },
+};
+
+export const Error = {
+  args: {
+    users: [],
+    loading: false,
+    error: 'Failed to fetch leaderboard data',
   },
 };
