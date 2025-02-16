@@ -1,31 +1,43 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  // This is not a comprehensive theme but just a helper for colors that are reused
+  :root {
+    --color-background: #0f0f0f;
+    --color-text: #ffffff;
+    --color-border: #2c2c2c;
+    --color-rank-badge: #292929;
+    --color-rank-badge-text: #ffd966;
+    --color-gm-streak: #ffd966;
+    --color-xp: #00ff7f;
+    --color-level: #bbbbbb;
+    --color-tooltip-background: #0f0f0f;
+    --color-tooltip-text: #ffffff;
+    --color-tooltip-arrow: #0f0f0f;
+    --color-nft-icon-background: #ffd966;
+    --color-nft-icon-text: #0f0f0f;
+  }
+
   body {
     font-family: 'Inter', 'Helvetica Rounded', 'Helvetica', 'ui-sans-serif', 'system-ui', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--color-background);
+    color: var(--color-text);
   }
-`
+`;
 
-/**
- * Container for the entire leaderboard area.
- * Uses a dark background and white text to match a typical layer3.xyz look.
- */
 export const Container = styled.div`
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background-color: var(--color-background);
+  color: var(--color-text);
   border-radius: 0.5rem;
-  padding: 1.5rem;
+  padding: 0;
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
 `;
 
-/**
- * Leaderboard Title
- */
 export const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
@@ -33,59 +45,67 @@ export const Title = styled.h2`
   text-align: center;
 `;
 
-/**
- * List that wraps each user entry.
- * Divided by a subtle border.
- */
 export const List = styled.ul`
-  border-top: 1px solid #2c2c2c;
-  border-bottom: 1px solid #2c2c2c;
+  padding: 0;
 `;
 
-/**
- * Individual item for each user on the leaderboard.
- * Uses flex layout to separate user info and stats.
- */
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
-  border-bottom: 1px solid #2c2c2c;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+
+  &:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom: none;
+  }
 
   &:last-of-type {
-    border-bottom: none;
+    border: none;
+  }
+
+  background-color: #241919;
+
+  // The first three players get a different background color
+  &:nth-child(1) {
+    background-color: rgba(255, 215, 0, 0.2); /* Gold */
+  }
+
+  &:nth-child(2) {
+    background-color: rgba(192, 192, 192, 0.2); /* Silver */
+  }
+
+  &:nth-child(3) {
+    background-color: rgba(205, 127, 50, 0.2); /* Bronze */
   }
 `;
 
-/**
- * Container for user info (avatar, rank, name, etc.).
- */
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
 `;
 
-/**
- * Displays the rank in a small circular badge.
- */
 export const RankBadge = styled.span`
-  background-color: #292929;
+  background-color: var(--color-rank-badge);
   width: 2rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  color: #ffd966;
+  color: var(--color-rank-badge-text);
   font-weight: 700;
   margin-right: 0.75rem;
   font-size: 0.875rem; /* ~14px */
 `;
 
-/**
- * User avatar image
- */
 export const Avatar = styled.img`
   width: 2.5rem;
   height: 2.5rem;
@@ -93,103 +113,85 @@ export const Avatar = styled.img`
   margin-right: 0.75rem;
 `;
 
-/**
- * Username text styling
- */
-export const Username = styled.span`
+export const Username = styled.a`
+  display: flex;
+  align-items: center;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
-/**
- * Container for the user’s stats (GM Streak, XP, Level).
- */
 export const Stats = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 `;
 
-/**
- * GM Streak text, styled in gold/yellow for emphasis.
- */
 export const GmStreak = styled.span`
-  color: #ffd966;
+  color: var(--color-gm-streak);
 `;
 
-/**
- * XP text, styled in green for contrast.
- */
 export const Xp = styled.span`
-  color: #00ff7f;
+  color: var(--color-xp);
 `;
 
-/**
- * Level text, styled in a lighter gray to differentiate from the other stats.
- */
 export const Level = styled.span`
-  color: #bbbbbb;
+  color: var(--color-level);
 `;
 
-/**
- * Container for the NFT icon and tooltip.
- */
 export const NFTContainer = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `;
 
-/**
- * NFT icon.
- */
 export const NFTIcon = styled.span`
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: #ffd966;
+  background-color: var(--color-nft-icon-background);
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: #0f0f0f;
+  color: var(--color-nft-icon-text);
 `;
 
-/**
- * Tooltip for displaying NFTs.
- */
+// Tooltip styles to show NFTs on hover
 export const Tooltip = styled.div`
   visibility: hidden;
   width: 200px;
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background-color: var(--color-tooltip-background);
+  color: var(--color-tooltip-text);
   text-align: center;
   border-radius: 0.5rem;
   padding: 0.5rem;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position above the icon */
+  bottom: 125%;
   left: 50%;
-  margin-left: -100px; /* Center the tooltip */
+  margin-left: -100px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
   &::after {
     content: '';
     position: absolute;
-    top: 100%; /* Arrow at the bottom */
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #0f0f0f transparent transparent transparent;
+    border-color: var(--color-tooltip-arrow) transparent;
   }
 `;
 
-/**
- * Show the tooltip on hover.
- */
+// Show NFTs images on hover
 export const NFTContainerHover = styled(NFTContainer)`
   &:hover ${Tooltip} {
     visibility: visible;
