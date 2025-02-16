@@ -8,21 +8,10 @@ export default defineConfig({
     babel({
       babelConfig: {
         presets: ['@babel/preset-env', '@babel/preset-react'],
-        plugins: ['@emotion']
       }
     })
   ],
   build: {
     outDir: 'dist',
   },
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'https://layer3.xyz',
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ''),
-  //     },
-  //   },
-  // },
-
 });
