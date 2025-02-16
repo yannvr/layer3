@@ -1,28 +1,10 @@
-# Node modules
 node_modules/
-
-# Logs
 logs
 *.log
 npm-debug.log*
-
-# Dependency directories
-jspm_packages/
-
-# Vite build output
 dist/
-
-# TypeScript
 *.tsbuildinfo
-
-# IDE specific files
 .vscode/
-.idea/
-
-# MacOS specific files
 .DS_Store
-
-# Environment variables
 .env
-
 *storybook.log
