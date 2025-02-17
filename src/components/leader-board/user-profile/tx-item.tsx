@@ -52,7 +52,7 @@ const TxExplorer: React.FC<TxExplorerProps> = ({ chain, transactionHash }) => {
 
   return (
     <TransactionLink href={getExplorerUrl(chain, transactionHash)} target="_blank" rel="noopener noreferrer">
-      View on Explorer
+      🔗
     </TransactionLink>
   );
 };
