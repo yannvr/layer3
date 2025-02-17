@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useUserProfileData, ActiveTab } from './user-profile.hooks';
-import { Balance, Transaction, NFT } from './user-profile.types';
+import { Balance, Transaction } from './user-profile.types';
 import { OpenSeaNTF } from '../leader-board.hooks';
 import TxItem from './tx-item';
 
@@ -53,26 +53,6 @@ const BalanceItem = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const TransactionItem = styled.div`
-  margin-bottom: 0.5rem;
-`;
-
-const NFTTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-`;
-
-const NFTTh = styled.th`
-  border: 1px solid var(--color-border);
-  padding: 0.5rem;
-`;
-
-const NFTTd = styled.td`
-  border: 1px solid var(--color-border);
-  padding: 0.5rem;
-`;
-
-// List of chains supported by Moralis (extend as needed)
 const supportedChains = [
   { value: 'ethereum', label: 'Ethereum' },
   { value: 'bsc', label: 'BSC' },
@@ -81,57 +61,29 @@ const supportedChains = [
 
 const formatTokenValue = (rawValue: string, decimals: number) => {
   const value = new BigNumber(rawValue);
-  // Divide the raw value by 10^(decimals) to shift the decimal point
   return value.dividedBy(new BigNumber(10).pow(decimals)).toFixed();
 };
 
 const UserProfile: React.FC = () => {
-  // Extract walletAddress from URL parameters
   const { walletAddress } = useParams<{ walletAddress: string }>();
-
-  // Manage active tab and selected chain
   const [activeTab, setActiveTab] = useState<ActiveTab>('balances');
   const [selectedChain, setSelectedChain] = useState<string>('ethereum');
-
-  // Use custom hook to fetch profile data
   const { data, loading, error } = useUserProfileData(walletAddress!, selectedChain, activeTab);
-  console.log('🚀 ~ data:', data);
 
-  return (
-    <Container>
-      <Title>User Profile</Title>
-      <TabsHeader>
-        <TabButton active={activeTab === 'balances'} onClick={() => setActiveTab('balances')}>
-          Balances
-        </TabButton>
-        <TabButton active={activeTab === 'transactions'} onClick={() => setActiveTab('transactions')}>
-          Transactions
-        </TabButton>
-        <TabButton active={activeTab === 'nft'} onClick={() => setActiveTab('nft')}>
-          NFT
-        </TabButton>
-        <ChainSelect value={selectedChain} onChange={(e) => setSelectedChain(e.target.value)}>
-          {supportedChains.map((chain) => (
-            <option key={chain.value} value={chain.value}>
-              {chain.label}
-            </option>
-          ))}
-        </ChainSelect>
-      </TabsHeader>
-      <Section>
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p style={{ color: 'red' }}>Error: {error}</p>
-        ) : activeTab === 'balances' ? (
+  const renderTabContent = () => {
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
+
+    switch (activeTab) {
+      case 'balances':
+        return (
           <>
             <h2>Balances</h2>
             {data.balances && data.balances.length > 0 ? (
               data.balances.map((token, index) => (
                 <BalanceItem key={index}>
-                  {/* <strong>{selectedChain}:</strong> */}
                   <ul>
-                    <li key={index}>
+                    <li>
                       {token.symbol}: {formatTokenValue(token.balance, token.decimals)}
                     </li>
                   </ul>
@@ -141,7 +93,9 @@ const UserProfile: React.FC = () => {
               <p>No balances available.</p>
             )}
           </>
-        ) : activeTab === 'transactions' ? (
+        );
+      case 'transactions':
+        return (
           <>
             <h2>Recent Transactions</h2>
             {data.transactions && data.transactions.length > 0 ? (
@@ -152,7 +106,9 @@ const UserProfile: React.FC = () => {
               <p>No transactions available.</p>
             )}
           </>
-        ) : (
+        );
+      case 'nft':
+        return (
           <>
             <h2>NFTs</h2>
             {data.nfts && data.nfts.length > 0 ? (
@@ -183,8 +139,34 @@ const UserProfile: React.FC = () => {
               <p>No NFTs available.</p>
             )}
           </>
-        )}
-      </Section>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <Container>
+      <Title>User Profile</Title>
+      <TabsHeader>
+        <TabButton active={activeTab === 'balances'} onClick={() => setActiveTab('balances')}>
+          Balances
+        </TabButton>
+        <TabButton active={activeTab === 'transactions'} onClick={() => setActiveTab('transactions')}>
+          Transactions
+        </TabButton>
+        <TabButton active={activeTab === 'nft'} onClick={() => setActiveTab('nft')}>
+          NFT
+        </TabButton>
+        <ChainSelect value={selectedChain} onChange={(e) => setSelectedChain(e.target.value)}>
+          {supportedChains.map((chain) => (
+            <option key={chain.value} value={chain.value}>
+              {chain.label}
+            </option>
+          ))}
+        </ChainSelect>
+      </TabsHeader>
+      <Section>{renderTabContent()}</Section>
     </Container>
   );
 };

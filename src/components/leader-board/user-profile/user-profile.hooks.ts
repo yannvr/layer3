@@ -38,7 +38,8 @@ export const useUserProfileData = (
         if (activeTab === 'balances') {
           // Fetch ERC20 balances
           const balanceRes = await fetch(
-            `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20?chain=${chain.replace('ethereum', 'eth')}&order=DESC&limit=10`,
+            `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20?chain=${chain.replace( 'ethereum', 'eth',
+            )}&order=DESC&limit=10`,
             {
               headers: {
                 accept: 'application/json',
@@ -47,13 +48,16 @@ export const useUserProfileData = (
             },
           );
           const balances: Balance[] = await balanceRes.json();
-          console.log("🚀 ~ fetchData ~ balances:", balances)
+          console.log('🚀 ~ fetchData ~ balances:', balances);
           // Only returns legit balance
-          setData({ balances: balances.filter((balance: Balance) => !balance.possible_spam && !balance.verified_contract) });
+          setData({
+            balances: balances.filter((balance: Balance) => !balance.possible_spam && !balance.verified_contract),
+          });
         } else if (activeTab === 'transactions') {
           // Fetch ERC20 balances
           const txResponse = await fetch(
-            `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20/transfers?chain=${chain.replace('ethereum', 'eth')}&order=DESC&limit=10`,
+            `https://deep-index.moralis.io/api/v2.2/${walletAddress}/erc20/transfers?chain=${chain.replace( 'ethereum', 'eth',
+            )}&order=DESC&limit=10`,
             {
               headers: {
                 accept: 'application/json',
@@ -62,15 +66,15 @@ export const useUserProfileData = (
             },
           );
           const data = await txResponse.json();
-          console.log("🚀 ~ fetchData ~ transactions:", data)
+          console.log('🚀 ~ fetchData ~ transactions:', data);
           // Only returns legit balance
           // setData({ balances: balances.filter((balance: Balance) => !balance.possible_spam && !balance.verified_contract) });
           setData({ transactions: data.result });
-        }
-        else if (activeTab === 'nft') {
+        } else if (activeTab === 'nft') {
           // Fetch NFT data using OpenSea API
           const nftRes = await fetch(
-            `https://api.opensea.io/api/v2/chain/${chain.replace('ethereum', 'eth')}/account/${walletAddress}/nfts?limit=5`,
+            `https://api.opensea.io/api/v2/chain/${chain.replace( 'ethereum', 'eth',
+            )}/account/${walletAddress}/nfts?limit=5`,
             {
               headers: {
                 accept: 'application/json',
@@ -79,7 +83,7 @@ export const useUserProfileData = (
             },
           );
           const nftData = await nftRes.json();
-          setData({ nfts: nftData.nfts?.filter((nft: OpenSeaNTF) => nft.display_image_url !== "") });
+          setData({ nfts: nftData.nfts?.filter((nft: OpenSeaNTF) => nft.display_image_url !== '') });
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : String(err));
