@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import useLeaderboardData, { User } from './leader-board.hooks';
 import {
   Avatar,
@@ -28,20 +29,23 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
     <UserInfo>
       <RankBadge>{user.rank}</RankBadge>
       <Avatar src={`https://ipfs.io/ipfs/${user.avatarCid}`} alt={user.username} />
-      <Username href={`https://app.layer3.xyz/${user.username}`} target="_blank">
+      <Username as={Link} to={`/user/${user.address}`}>
         {user.username}
       </Username>
     </UserInfo>
 
     <Stats>
-      <GmStreak>{user.gmStreak} GM</GmStreak>
-      <Xp>{user.xp} XP</Xp>
-      <Level>Level {user.level}</Level>
+      <GmStreak>
+        {user.gmStreak} GM
+      </GmStreak>
+      <Xp>
+        {user.xp} XP
+      </Xp>
+      <Level>Lvl {user.level}</Level>
       <div>
         {user.nfts && user.nfts.length > 0 && (
           <NFTContainerHover>
             <img src="/src/assets/nft-icon.png" alt="NFT" width="20" height="20" />
-            {/* Display User's NFT when hovering the tooltip icon */}
             <Tooltip>
               {user.nfts.map(
                 (nft) =>
@@ -62,7 +66,6 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
   </ListItem>
 );
 
-// Raw component for testing purposes
 export const LeaderBoardRaw: FC<LeaderBoardProps> = ({ users = [], loading = false, error = null }) => {
   if (loading) {
     return <Container className="text-center">Loading...</Container>;
@@ -84,7 +87,9 @@ export const LeaderBoardRaw: FC<LeaderBoardProps> = ({ users = [], loading = fal
   );
 };
 
-export const LeaderBoard: FC<LeaderBoardProps> = (props) => {
+const LeaderBoard: FC<LeaderBoardProps> = (props) => {
   const { users, loading, error } = useLeaderboardData();
   return <LeaderBoardRaw users={users} loading={loading} error={error} {...props} />;
 };
+
+export default LeaderBoard;

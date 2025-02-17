@@ -1,7 +1,7 @@
 // filepath: /Users/yannvallery-radot/dev/iview/layer3/src/components/leader-board.styles.tsx
 import styled, { createGlobalStyle } from 'styled-components';
-import fireIcon from '../assets/fire.png';
-import rankBadgeIcon from '../assets/rank-badge.png';
+import fireIcon from '../../assets/fire.png';
+import rankBadgeIcon from '../../assets/rank-badge.png';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -141,7 +141,7 @@ export const GmStreak = styled.span`
   background-image: url(${fireIcon});
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 1.5rem; /* Adjust padding to make space for the icon */
+  padding-left: 1.5rem;
 `;
 
 export const Xp = styled.span`
@@ -151,7 +151,7 @@ export const Xp = styled.span`
   background-image: url(${rankBadgeIcon});
   background-size: contain;
   background-repeat: no-repeat;
-  padding-left: 1.5rem; /* Adjust padding to make space for the icon */
+  padding-left: 1.5rem;
 `;
 
 export const Level = styled.span`
