@@ -1,6 +1,5 @@
 // filepath: /Users/yannvallery-radot/dev/iview/layer3/src/components/leader-board.styles.tsx
 import styled, { createGlobalStyle } from 'styled-components';
-import fireIcon from '../../assets/fire.png';
 import rankBadgeIcon from '../../assets/rank-badge.png';
 
 export const GlobalStyle = createGlobalStyle`
@@ -135,16 +134,10 @@ export const Stats = styled.div`
 `;
 
 export const GmStreak = styled.span`
-  display: flex;
-  align-items: center;
   color: var(--color-gm-streak);
-  background-image: url(${fireIcon});
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-left: 1.5rem;
 `;
 
-export const Xp = styled.span`
+export const XP = styled.span`
   display: flex;
   align-items: center;
   color: var(--color-xp);
@@ -175,39 +168,4 @@ export const NFTIcon = styled.span`
   justify-content: center;
   font-size: 1rem;
   color: var(--color-nft-icon-text);
-`;
-
-export const Tooltip = styled.div`
-  visibility: hidden;
-  width: 200px;
-  background-color: var(--color-tooltip-background);
-  color: var(--color-tooltip-text);
-  text-align: center;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -100px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--color-tooltip-arrow) transparent transparent transparent;
-  }
-`;
-
-export const NFTContainerHover = styled(NFTContainer)`
-  &:hover ${Tooltip} {
-    visibility: visible;
-    opacity: 1;
-  }
 `;

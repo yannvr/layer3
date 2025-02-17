@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
-import { LeaderBoard as LeaderBoardRaw } from './leader-board';
+import { LeaderBoardRaw } from './leader-board';
 
 const mockUsers: { users: any } = {
   users: [

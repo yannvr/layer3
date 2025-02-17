@@ -38,7 +38,7 @@ export interface OpenSeaNTF {
   is_nsfw: boolean;
 }
 
-export const OPENSEA_API_KEY = "a3d3c7d1c3804342a876d896c54a8579";
+export const OPENSEA_API_KEY = 'a3d3c7d1c3804342a876d896c54a8579';
 
 // API fallback data
 /* prettier-ignore */
@@ -50,19 +50,6 @@ const useLeaderboardData = (): UseLeaderboardDataResult => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchNFTs = async (address: string): Promise<OpenSeaNTF[]> => {
-      // Returns the first 5 NFTs for the given address
-      // const response = await fetch(`https://api.opensea.io/api/v2/chain/ethereum/account/${address}/nfts?limit=5`, {
-      //   headers: {
-      //     // In production, we would not expose the API key but use a backend service to fetch the nfts
-      //     'x-api-key': OPENSEAR_API_KEY,
-      //   },
-      // });
-      // const data: OpenSeaNFTCollection = await response.json();
-      // console.log('🚀 ~ fetchNFTs ~ data:', data);
-      // return data.nfts;
-    };
-
     const fetchUsers = async () => {
       try {
         // The API is currently blocking access to localhost as it is not allowed in the CORS policy
@@ -72,15 +59,9 @@ const useLeaderboardData = (): UseLeaderboardDataResult => {
         });
         const data = response ? await response.json() : LEADER_BOARD_USER_MOCK;
 
-        const usersWithNFTs = await Promise.all(
-          data.users.map(async (user: User) => {
-            const nfts = await fetchNFTs(user.address);
-            return { ...user, nfts };
-          }),
-        );
         // Sort users by level
-        usersWithNFTs.sort((a, b) => b.level - a.level);
-        setUsers(usersWithNFTs);
+        data.users.sort((a: User, b: User) => b.level - a.level);
+        setUsers(data.users);
         setLoading(false);
       } catch (error) {
         setLoading(false);

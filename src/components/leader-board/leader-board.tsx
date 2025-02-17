@@ -8,14 +8,12 @@ import {
   Level,
   List,
   ListItem,
-  NFTContainerHover,
   RankBadge,
   Stats,
   Title,
-  Tooltip,
   UserInfo,
   Username,
-  Xp,
+  XP,
 } from './leader-board.styles';
 
 interface LeaderBoardProps {
@@ -35,33 +33,9 @@ const LeaderBoardUser: FC<{ user: User }> = ({ user }) => (
     </UserInfo>
 
     <Stats>
-      <GmStreak>
-        {user.gmStreak} GM
-      </GmStreak>
-      <Xp>
-        {user.xp} XP
-      </Xp>
-      <Level>Lvl {user.level}</Level>
-      <div>
-        {user.nfts && user.nfts.length > 0 && (
-          <NFTContainerHover>
-            <img src="/src/assets/nft-icon.png" alt="NFT" width="20" height="20" />
-            <Tooltip>
-              {user.nfts.map(
-                (nft) =>
-                  nft.display_image_url && (
-                    <div key={nft.identifier}>
-                      <a href={nft.opensea_url} target="_blank" rel="noopener noreferrer">
-                        <img src={nft.display_image_url} alt={nft.name} width="50" height="50" />
-                      </a>
-                      <p>{nft.name}</p>
-                    </div>
-                  ),
-              )}
-            </Tooltip>
-          </NFTContainerHover>
-        )}
-      </div>
+      <GmStreak> 🔥 {user.gmStreak} </GmStreak>
+      <XP> {user.xp} XP </XP>
+      <Level>🎖 {user.level}</Level>
     </Stats>
   </ListItem>
 );
