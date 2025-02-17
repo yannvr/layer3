@@ -1,16 +1,13 @@
-# **Layer3 Leaderboard – Test Assignment**  
+# Layer3 Leaderboard – Test Assignment  
 
-The aim was to deliver a robust solution (unit test and UI test) while keeping the code simple and easy to read.
+Leaderboard for questers
 
----
-
-## **Setup **  
+## Setup  
 
 - ```pnpm install ```
 - ```pnpm run test ``` run all tests
 - ```pnpm run dev ``` run the server
 - ```pnpm run storybook``` open storybook
-
 
 ## Approach
 Having an expressive semantic and modular code has driven my approach. The project stucture and name convention should make it obvious to review and maintain. Separation of concerns is reflected through the file strcuture and name convention.
@@ -27,8 +24,6 @@ Having an expressive semantic and modular code has driven my approach. The proje
     - balances and transactions are fetched using Moralis API
     - NFTs are fetched using OpenSea
     - tab content is relative to the select chain (one of Ethereum, BSC or Polygon)
-
----
 
 ## Notes
 
