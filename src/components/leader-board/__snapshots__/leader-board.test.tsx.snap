@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
+exports[`LeaderBoard Component matches snapshot when populated with NFTs 1`] = `
 <DocumentFragment>
   <div
     class="sc-FEMpB tVkqj"
@@ -31,8 +31,8 @@ exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
           />
           <a
             class="sc-kfeOyU PACFW"
-            href="https://app.layer3.xyz/{user.username}"
-            target="_blank"
+            data-discover="true"
+            href="/user/0xF222f955Ecced246f3181d14fB4629469cEB7681"
           >
             yakugakusei.eth
           </a>
@@ -41,53 +41,20 @@ exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
           class="sc-hRDKVd iPvKte"
         >
           <span
-            class="sc-jBIHhB jcbsD"
+            class="sc-jBIHhB fIsVVr"
           >
-            248 GM
+             🔥 248 
           </span>
           <span
-            class="sc-cMqPwU kZRiJs"
+            class="sc-cMqPwU gcPAsU"
           >
-            169164 XP
+             169164 XP 
           </span>
           <span
             class="sc-jUkaYT kRKbRX"
           >
-            Lvl 41
+            🎖 41
           </span>
-          <div>
-            <div
-              class="sc-deSjom sc-jZTQcj bpfXyB HJqlG"
-            >
-              <img
-                alt="NFT"
-                height="20"
-                src="/src/assets/nft-icon.png"
-                width="20"
-              />
-              <div
-                class="sc-cSaEAk bhJyLN"
-              >
-                <div>
-                  <a
-                    href="https://opensea.io/assets/1"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <img
-                      alt="NFT 1"
-                      height="50"
-                      src="https://example.com/nft1.png"
-                      width="50"
-                    />
-                  </a>
-                  <p>
-                    NFT 1
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </li>
       <li
@@ -108,8 +75,8 @@ exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
           />
           <a
             class="sc-kfeOyU PACFW"
-            href="https://app.layer3.xyz/{user.username}"
-            target="_blank"
+            data-discover="true"
+            href="/user/0x1234567890abcdef1234567890abcdef12345678"
           >
             user2.eth
           </a>
@@ -118,21 +85,20 @@ exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
           class="sc-hRDKVd iPvKte"
         >
           <span
-            class="sc-jBIHhB jcbsD"
+            class="sc-jBIHhB fIsVVr"
           >
-            150 GM
+             🔥 150 
           </span>
           <span
-            class="sc-cMqPwU kZRiJs"
+            class="sc-cMqPwU gcPAsU"
           >
-            120000 XP
+             120000 XP 
           </span>
           <span
             class="sc-jUkaYT kRKbRX"
           >
-            Lvl 30
+            🎖 30
           </span>
-          <div />
         </div>
       </li>
     </ul>
@@ -140,7 +106,7 @@ exports[`LeadBoard Component matches snapshot when populated with NFTs 1`] = `
 </DocumentFragment>
 `;
 
-exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = `
+exports[`LeaderBoard Component matches snapshot when populated without NFTs 1`] = `
 <DocumentFragment>
   <div
     class="sc-FEMpB tVkqj"
@@ -171,8 +137,8 @@ exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = 
           />
           <a
             class="sc-kfeOyU PACFW"
-            href="https://app.layer3.xyz/{user.username}"
-            target="_blank"
+            data-discover="true"
+            href="/user/0xF222f955Ecced246f3181d14fB4629469cEB7681"
           >
             yakugakusei.eth
           </a>
@@ -181,21 +147,20 @@ exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = 
           class="sc-hRDKVd iPvKte"
         >
           <span
-            class="sc-jBIHhB jcbsD"
+            class="sc-jBIHhB fIsVVr"
           >
-            248 GM
+             🔥 248 
           </span>
           <span
-            class="sc-cMqPwU kZRiJs"
+            class="sc-cMqPwU gcPAsU"
           >
-            169164 XP
+             169164 XP 
           </span>
           <span
             class="sc-jUkaYT kRKbRX"
           >
-            Lvl 41
+            🎖 41
           </span>
-          <div />
         </div>
       </li>
       <li
@@ -216,8 +181,8 @@ exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = 
           />
           <a
             class="sc-kfeOyU PACFW"
-            href="https://app.layer3.xyz/{user.username}"
-            target="_blank"
+            data-discover="true"
+            href="/user/0x1234567890abcdef1234567890abcdef12345678"
           >
             user2.eth
           </a>
@@ -226,21 +191,20 @@ exports[`LeadBoard Component matches snapshot when populated without NFTs 1`] = 
           class="sc-hRDKVd iPvKte"
         >
           <span
-            class="sc-jBIHhB jcbsD"
+            class="sc-jBIHhB fIsVVr"
           >
-            150 GM
+             🔥 150 
           </span>
           <span
-            class="sc-cMqPwU kZRiJs"
+            class="sc-cMqPwU gcPAsU"
           >
-            120000 XP
+             120000 XP 
           </span>
           <span
             class="sc-jUkaYT kRKbRX"
           >
-            Lvl 30
+            🎖 30
           </span>
-          <div />
         </div>
       </li>
     </ul>

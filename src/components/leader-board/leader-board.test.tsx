@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { LeaderBoardRaw } from './leader-board';
 
-const mockUsers: { users: any } = {
+const mockUsers = {
   users: [
     {
       rank: 1,
@@ -18,6 +19,21 @@ const mockUsers: { users: any } = {
           display_image_url: 'https://example.com/nft1.png',
           name: 'NFT 1',
           opensea_url: 'https://opensea.io/assets/1',
+          collection: 'Example Collection',
+          contract: '0xExampleContract',
+          token_standard: 'ERC-721',
+          description: 'Example NFT description',
+          external_link: 'https://example.com',
+          image_original_url: 'https://example.com/nft1-original.png',
+          image_url: 'https://example.com/nft1.png',
+          display_animation_url: null,
+          metadata_url: 'https://example.com/metadata/1',
+          updated_at: '2023-10-01T00:00:00Z',
+          animation_url: null,
+          background_color: null,
+          is_disabled: false,
+          is_nsfw: false,
+          traits: [],
         },
       ],
     },
@@ -34,7 +50,7 @@ const mockUsers: { users: any } = {
   ],
 };
 
-describe('LeadBoard Component', () => {
+describe('LeaderBoard Component', () => {
   beforeEach(() => {
     // @ts-ignore
     global.fetch = jest.fn(() =>
@@ -52,7 +68,11 @@ describe('LeadBoard Component', () => {
   // Basic rendering test below for the key states of the component
 
   test('renders loading state initially', () => {
-    render(<LeaderBoardRaw />);
+    render(
+      <MemoryRouter>
+        <LeaderBoardRaw loading={true} />
+      </MemoryRouter>
+    );
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
@@ -63,14 +83,22 @@ describe('LeadBoard Component', () => {
         ok: false,
       })
     );
-    render(<LeaderBoardRaw />);
+    render(
+      <MemoryRouter>
+        <LeaderBoardRaw error="Failed to load data" />
+      </MemoryRouter>
+    );
     await waitFor(() =>
       expect(screen.getByText(/error/i)).toBeInTheDocument()
     );
   });
 
   test('renders users after successful fetch', async () => {
-    render(<LeaderBoardRaw />);
+    render(
+      <MemoryRouter>
+        <LeaderBoardRaw users={mockUsers.users} />
+      </MemoryRouter>
+    );
     await waitFor(() =>
       expect(screen.getByText('Leaderboard')).toBeInTheDocument()
     );
@@ -80,14 +108,22 @@ describe('LeadBoard Component', () => {
 
   // Use snapshot testing to test NFT rendering
   test('matches snapshot when populated with NFTs', async () => {
-    const { asFragment } = render(<LeaderBoardRaw users={mockUsers.users} />);
+    const { asFragment } = render(
+      <MemoryRouter>
+        <LeaderBoardRaw users={mockUsers.users} />
+      </MemoryRouter>
+    );
     await waitFor(() => expect(screen.getByText('yakugakusei.eth')).toBeInTheDocument());
     expect(asFragment()).toMatchSnapshot();
   });
 
   test('matches snapshot when populated without NFTs', async () => {
     const usersWithoutNFTs = mockUsers.users.map((user: any) => ({ ...user, nfts: [] }));
-    const { asFragment } = render(<LeaderBoardRaw users={usersWithoutNFTs} />);
+    const { asFragment } = render(
+      <MemoryRouter>
+        <LeaderBoardRaw users={usersWithoutNFTs} />
+      </MemoryRouter>
+    );
     await waitFor(() => expect(screen.getByText('yakugakusei.eth')).toBeInTheDocument());
     expect(asFragment()).toMatchSnapshot();
   });
