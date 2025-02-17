@@ -37,15 +37,17 @@ Having an expressive semantic and modular code has driven my approach. The proje
 
 ## Test
 
-Test are limited to the LeaderBoard for this test but same patterns will apply to all components:
+Tests are limited to the LeaderBoard for the assigment (to keep solution small) gut they demonstrate the pattern that should be used for all components:
   - Unit test is done via Jest. Some tests look for component essential features in rendering but snapshots tests are also used to provide a full coverage of the semantic.
   - Storybook is used for testing basic test cases and was used to test and style the UI without having to reload the app and refetch data
   - Raw component is used to decouple rendering from data fetching and to enable UI testing
 
 ## Improvement
 - Provide full test coverage
+- Better content display for user view
 - Implement caching mechanism to reduce redundant requests
 - Improve mobile responsiveness to make the app more accessible
 - Use fontawesome to provide consistent icons
 - improvement of network handling for loading and errors on UI
 - creating a Vite proxy to centralize network requests
+- use a server to handle all network requests that rely on an API key
