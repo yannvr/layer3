@@ -14,7 +14,7 @@ exports[`LeaderBoard Component matches snapshot when populated with NFTs 1`] = `
       class="sc-dVBluf cmzpOe"
     >
       <li
-        class="sc-fLDLck kxoDan"
+        class="sc-fLDLck hVKosL"
       >
         <div
           class="sc-dycHyt gojcEs"
@@ -58,7 +58,7 @@ exports[`LeaderBoard Component matches snapshot when populated with NFTs 1`] = `
         </div>
       </li>
       <li
-        class="sc-fLDLck kxoDan"
+        class="sc-fLDLck hVKosL"
       >
         <div
           class="sc-dycHyt gojcEs"
@@ -120,7 +120,7 @@ exports[`LeaderBoard Component matches snapshot when populated without NFTs 1`] 
       class="sc-dVBluf cmzpOe"
     >
       <li
-        class="sc-fLDLck kxoDan"
+        class="sc-fLDLck hVKosL"
       >
         <div
           class="sc-dycHyt gojcEs"
@@ -164,7 +164,7 @@ exports[`LeaderBoard Component matches snapshot when populated without NFTs 1`] 
         </div>
       </li>
       <li
-        class="sc-fLDLck kxoDan"
+        class="sc-fLDLck hVKosL"
       >
         <div
           class="sc-dycHyt gojcEs"
