@@ -1,10 +1,19 @@
+// filepath: src/components/leader-board/leader-board.stories.tsx
 import type { Meta } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 import { LeaderBoardRaw } from './leader-board';
 import { LEADER_BOARD_USER_MOCK } from './leader-board.hooks';
 
 export default {
   title: 'Components/LeaderBoard',
   component: LeaderBoardRaw,
+  decorators: [
+    (Story) => (
+      <MemoryRouter initialEntries={['/']}>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 } as Meta;
 
 export const Default = {

@@ -75,17 +75,14 @@ export const ListItem = styled.li`
 
   &:nth-child(1) {
     background-color: rgba(255, 215, 0, 0.2); /* Gold */
-    color: #000000; /* Ensure text contrast */
   }
 
   &:nth-child(2) {
     background-color: rgba(192, 192, 192, 0.2); /* Silver */
-    color: #000000; /* Ensure text contrast */
   }
 
   &:nth-child(3) {
     background-color: rgba(205, 127, 50, 0.2); /* Bronze */
-    color: #000000; /* Ensure text contrast */
   }
 `;
 

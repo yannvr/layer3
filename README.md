@@ -26,8 +26,11 @@ Having an expressive semantic and modular code has driven my approach. The proje
   - css vars are used for consistency when a color is used in multiple place
   - no framework was used to reduce any overhead (that is why tailwind was not used)
 - Network layer:
-  - data fetching operations are all handled in the leader board hook for clarity
-  - a fallback is in place for layer3 endpoint
+  - data fetching operations are all handled by hooks for clairy
+  - User view
+    - balances and transactions are fetched using Moralis API
+    - NFTs are fetched using OpenSea
+    - tab content is relative to the select chain (one of Ethereum)
 
 ---
 

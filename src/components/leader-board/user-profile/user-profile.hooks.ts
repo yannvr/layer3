@@ -48,7 +48,6 @@ export const useUserProfileData = (
             },
           );
           const balances: Balance[] = await balanceRes.json();
-          console.log('🚀 ~ fetchData ~ balances:', balances);
           // Only returns legit balance
           setData({
             balances: balances.filter((balance: Balance) => !balance.possible_spam && !balance.verified_contract),
@@ -66,7 +65,6 @@ export const useUserProfileData = (
             },
           );
           const data = await txResponse.json();
-          console.log('🚀 ~ fetchData ~ transactions:', data);
           // Only returns legit balance
           // setData({ balances: balances.filter((balance: Balance) => !balance.possible_spam && !balance.verified_contract) });
           setData({ transactions: data.result });
