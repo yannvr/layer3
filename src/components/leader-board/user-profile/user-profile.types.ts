@@ -17,23 +17,28 @@ export interface Balance {
 }
 
 export interface Transaction {
-  hash: string;
-  nonce: string;
-  transaction_index: string;
-  from_address: string;
-  to_address: string | null;
-  value: string;
-  gas: string;
-  gas_price: string;
-  receipt_cumulative_gas_used: string;
-  receipt_gas_used: string;
-  receipt_contract_address: string | null;
-  receipt_status: string;
-  block_timestamp: string;
-  block_number: string;
+  address: string;
   block_hash: string;
-  transaction_fee: string;
-  summary: string;
+  block_number: string;
+  block_timestamp: string;
+  from_address: string;
+  from_address_entity: string | null;
+  from_address_entity_logo: string | null;
+  from_address_label: string | null;
+  log_index: number;
   possible_spam: boolean;
-  category: string;
+  security_score: number | null;
+  to_address: string;
+  to_address_entity: string | null;
+  to_address_entity_logo: string | null;
+  to_address_label: string | null;
+  token_decimals: string;
+  token_logo: string;
+  token_name: string;
+  token_symbol: string;
+  transaction_hash: string;
+  transaction_index: number;
+  value: string;
+  value_decimal: string;
+  verified_contract: boolean;
 }
